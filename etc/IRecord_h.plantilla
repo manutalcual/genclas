@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) Amper Sistemas 2006
+ * \\file $clase.hh
+ * \\author $usuario
+ * \\date $fecha
+ * 
+ * \\brief Class $clase
+ *
+ * TODOC
+ *
+ */
+
+#ifndef __\do upcase {${clase}}_H__
+#define __\do upcase {${clase}}_H__
+
+\for sysincludes {#include <%.include>\n }
+\for includes {#include "%.include"\n }
+
+\for sysincludes {
+#include "%.include" \if % = "time" { // poner esto en time}
+\if %.include != "time.h" { // Esto no es time.h}
+\if % != time {\t // Esto sigue sin ser time} 
+} 
+
+namespace $namespace {
+
+    /** 
+     * \\brief Class $clase. TODOC
+     *
+     * TODOC
+     *
+     */
+    class $clase : public $interfaz, public InterObjectClient
+    {
+    public:
+        \for constructores { 
+        /**
+         * \\brief Func. % TODOC
+         * \for parametros {\n \t  * \\param % %.type %.output TODOC } 
+         */
+	% (\for parametros {%.type %.output %%?nolast{, }} );
+        } 
+        \for destructores { 
+        /**
+         * \\brief Func. % TODOC
+         */
+	~% ();
+        } 
+        \for funciones { 
+        /**
+         * \\brief Func. % TODOC
+         * \for parametros {\n \t  * \\param % %.type %.output TODOC } 
+         *
+         * \\return %.return %.ret_type \n
+         */
+	%.return %.ret_type % (\for parametros {%.type %.output %%?nolast{, }} );
+        } 
+    protected:
+    private:
+    };
+
+} // end namespace $namespace
+
+#endif

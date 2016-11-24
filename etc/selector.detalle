@@ -1,0 +1,14 @@
+#
+#
+#
+
+clase
+{
+	nombre = SelectorInventadoParaMi
+	parametro = "Uno & uno, ",
+		"Dos dos"
+	include = "apps/apptpv/diautil/lola.h",
+		"apps/apptpv/diatest/lola.h"
+	atributo = "st::string & pepe;",
+		"InvernalIns _invIns;"
+}

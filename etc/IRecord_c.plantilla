@@ -1,0 +1,52 @@
+/**
+ * Copyright (c) Amper Sistemas 2006
+ * \\file $clase.cc
+ * \\author $usuario
+ * \\date $fecha
+ * 
+ */
+
+#include "$clase.hh"
+
+namespace $namespace {
+
+    \for constructores {
+    $clase::% (\for parametros {%.type %} )
+        : InterObjectClient (\for parametros {%} )
+    {
+    \}
+    }
+
+    \for destructores {
+    $clase::~% ()
+    {
+    \}
+    }
+
+    \for funciones {
+    %.return %.ret_type $clase::% (\for parametros {%.type %.output %%?nolast{, } } )
+    {
+	\if %.return != "" {
+	dcn::bencode data;
+	%.return retvar = %.ret_ini;
+	
+	\for parametros {data << %;\n \t } 
+	send_call (data.str());
+
+	m_stream >> retvar;
+
+	if (retvar == %.ret_ok)
+        {
+            \for parametros {m_stream >> %;\n             } 
+        \}
+
+	return retvar;
+	} 
+	\if %.return == "" {
+	send_call ();
+	} 
+    \} 
+    }
+
+} // end namespace $namespace
+

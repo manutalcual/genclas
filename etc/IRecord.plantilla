@@ -1,0 +1,44 @@
+/**
+ * Copyright (C) DIA 2005
+ * \\file $clase.h
+ * \\author $usuario
+ * \\date $fecha
+ * 
+ */
+
+#ifndef \do upcase {${clase}}_H
+#define \do upcase {${clase}}_H
+
+\for kk { }
+
+\for includes {#include "%"
+}
+
+/** 
+ * \\brief 
+ *
+ */
+class $clase
+{
+public:
+    $clase ();
+
+    \for funciones {%.return % (\for parametros {%.type %.output % %?last{,}} );
+    }
+
+    /// Destructor 
+    virtual inline ~${clase}();
+    
+    // def. funciones acceso
+protected:
+private:
+};
+
+${clase}::~${clase} ()
+{
+}
+
+// impl. funciones acceso
+
+
+#endif

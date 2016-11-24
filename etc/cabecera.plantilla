@@ -1,0 +1,72 @@
+/**
+ * Copyright (C) ${empresa} 2006
+ * \\file ${clase}.h
+ * \\author $usuario
+ * \\date $fecha
+ *
+ */
+
+#ifndef \do upcase {${clase}_h}
+#define \do upcase {${clase}_h}
+
+/**
+ * \\brief
+ *
+ */
+class ${clase} : \for herencia {%}
+{
+	\ole { este es mi \for herencia {
+			%
+			} comando 
+		infuncionable }
+public:
+	$clase ();
+
+	/// Destructor
+	virtual inline ~${clase} ();
+
+    // def. funciones acceso
+protected:
+private:
+    // atributos
+
+};
+
+//
+// Si esto tiene una cantidad de codigo significativa,
+// no deberia ser inline
+//
+${clase}::~${clase} ()
+{
+}
+
+//
+// impl. funciones acceso
+//
+// Las funciones de acceso corresponden a las variables
+// miembro aunque tengo la fuerte sospecha de que se 
+// refieren principalmente a las funciones para acceder 
+// a los campos de las tablas de las bases de 
+// datos (VistaFisica).
+//
+// Craso error. 
+// Debería haber una sola función de acceso llamada: 
+// operator[] (std::string nombre) 
+// e implementada de la siguiente manera:
+//
+// template <class T>
+// T ClaseX::operator [] (std::string nombre)
+// {
+//     return VistaFisica::getCampo<T>(nombre);
+// }
+//
+// Puede que la función parametrizada getCampo no exista
+// en VistaFisica, si no existe, deberia crearse.
+//
+// Es mas, el operador no tiene por que implementarse
+// mas que en VistaFisica, puesto que será exactamente la
+// misma función para todas las clases hijas.
+//
+
+
+#endif

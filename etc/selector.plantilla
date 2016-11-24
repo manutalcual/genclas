@@ -1,0 +1,61 @@
+/**
+ * Copyright (C) DIA 2005
+ * \\file $clase.h
+ * \\author $usuario
+ * \\date $fecha
+ * 
+ */
+
+#ifndef \do upcase {${clase}}_H
+#define \do upcase {${clase}}_H
+
+\for include {#include "%"
+}
+
+/*
+ * Esto esta hecho para probar la recursion de
+ * bloques de codigo.
+\for atributo
+{ * El atributo: % pertence a la clase $clase.
+ * Tambien estan los includes:
+\for include { *   %
+} *
+} *
+ */
+
+/** 
+ * \\brief 
+ *
+ */
+class $clase
+{
+public:
+    $clase (\for parametro {%});
+
+    IteradorIds begin();
+
+    /// Destructor 
+    virtual inline ~${clase}();
+    
+    // def. funciones acceso
+protected:
+private:
+    const std::string getNombreCampoARecuperar() const;
+
+    const std::string getNombreTabla() const;
+    
+    // atributos
+    \for atributo
+    {%
+    }
+};
+
+${clase}::~${clase} ()
+{
+}
+
+// impl. funciones acceso
+
+
+#endif
+
